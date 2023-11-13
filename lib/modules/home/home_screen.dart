@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:netflix_clone/modules/my_list/my_list_screen.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -187,6 +189,14 @@ class HomeScreen extends StatelessWidget {
                             Container(
                               height: 200,
                               width: 135,
+                              child: Padding(
+                                padding:  EdgeInsets.all(30),
+                                child: CircleAvatar(
+                                  backgroundColor: Color.fromRGBO(0, 0, 0,0.6),
+                                  foregroundColor: Colors.white,
+                                  child: Icon(Icons.play_arrow,size: 50,),
+                                ),
+                              ),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 image: DecorationImage(
@@ -195,12 +205,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            CircleAvatar(
-                              radius: 40,
-                              backgroundColor: Color.fromRGBO(0, 0, 0,0.6),
-                              foregroundColor: Colors.white,
-                              child: Icon(Icons.play_arrow,size: 50,),
-                            )
+
                           ],
                         ),
                       ],
@@ -231,17 +236,22 @@ class HomeScreen extends StatelessWidget {
                         List.generate(5, (index) {
                           return Padding(
                             padding:  EdgeInsets.symmetric(horizontal: 5.0),
-                            child: Container(
-                              height: 200,
-                              width: 135,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage("https://m.media-amazon.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_.jpg")
+                            child: InkWell(
+                              onTap: (){
+                                Get.to(MyListScreen());
+                              },
+                              child: Container(
+                                height: 200,
+                                width: 135,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage("https://m.media-amazon.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_.jpg")
+                                  ),
                                 ),
-                              ),
 
+                              ),
                             ),
                           );
                         }
